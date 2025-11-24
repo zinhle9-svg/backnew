@@ -1,13 +1,13 @@
 const express = require('express');
  const app = express();
 const cors = require('cors');
-const products = require('./products').default;
+const products = require('./products');
    
 app.use(cors());
 app.use(express.json());
 
     // Get all products
-    app.get("/api/products", (req, res) => {
+    app.get("/products", (req, res) => {
   res.json(products);
 });
 //get each product
