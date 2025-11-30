@@ -1,4 +1,4 @@
-const Products = [
+export const Products = [
   {
     id: 1,
     name: "Wireless Headphones",
@@ -90,4 +90,4 @@ const Products = [
       "This compact Bluetooth speaker delivers surprisingly powerful sound with deep bass and crisp highs. The rugged build makes it ideal for outdoor adventures, while the water-resistant coating protects it from spills or light rain. With up to 12 hours of playtime, you can enjoy music on the go without worrying about charging. The built-in microphone lets you take hands-free calls, and the Bluetooth 5.0 connection ensures stable wireless playback from any device."
   }
 ];
-export default Products;
+
