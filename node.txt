@@ -1,0 +1,7 @@
+cart adding
+cart post, get from request from body
+each user has its own object that has an id and cart
+function that will check in the carts 
+check if theres any object with the specific id
+add to cart array 
+

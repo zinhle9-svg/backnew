@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const {Products} = require('./products');
  const port = process.env.PORT || 4000;
+ const {cart} = require('./cart')
+ const {users} = require('./users')
    
 app.use(cors());
 app.use(express.json());
@@ -34,17 +36,33 @@ app.post('/products', (req, res) => {
     category: req.body.category,
     description: req.body.description
   };
-  
+ const existingItem = cart.find(item => item.id === newProduct.id)
+ if (existingItem) {
+existingItem.quantity += 1;
+ } else {
+  cart.push({ ...newProduct, quantity: 1 });
+ }
+ 
+ res.json(cart)
+}); 
+//  app.delete('/product/:id', (req.res) => { 
+//  })
+app.get('/users/:id', (req, res) => {
+const userId = parseInt(req.id);   
+const user = users.find(u => u.id === userId);
+const userProducts = (user.productItems || []).map(pid =>
+    Products.find(p => p.id === pid)
+  );
 
-  res.json(newProduct);
-console.log(req.body)
-res.json(newProduct)
-});
+  res.json({
+    ...user,
+    Products: userProducts
+  });
 
-
+})
 
 
     app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-    });
+    }); 
     
