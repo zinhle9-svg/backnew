@@ -47,8 +47,11 @@ existingItem.quantity += 1;
 }); 
 //  app.delete('/product/:id', (req.res) => { 
 //  })
+app.get('/users', (req, res) => {
+  res.send(users)
+})
 app.get('/users/:id', (req, res) => {
-const userId = parseInt(req.id);   
+const userId = parseInt(req.body.id);   
 const user = users.find(u => u.id === userId);
 const userProducts = (user.productItems || []).map(pid =>
     Products.find(p => p.id === pid)
