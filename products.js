@@ -1,11 +1,12 @@
+const BACKEND_URL = "http://localhost:4000";
 
-export const Products = [
+ export const Products = [
   {
     id: 'p1',
     name: "Wireless Headphones",
     price: 1299,
     category: "Electronics",
-    image: "./images/headphones.jpg",
+    image: "/images/headphones.jpg",
     description:
       "These wireless over-ear headphones are designed for comfort and performance. They feature advanced noise-cancellation technology that blocks out background noise, making them perfect for commuting, studying, or enjoying music at home. The soft memory-foam ear cushions reduce pressure during long listening sessions, while the lightweight frame keeps everything comfortable. With up to 30 hours of battery life on a single charge, Bluetooth 5.0 connectivity, and fast-charge support, these headphones deliver powerful sound with deep bass and crisp clarity every time."
   },

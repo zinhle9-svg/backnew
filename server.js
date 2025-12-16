@@ -5,9 +5,14 @@ const {Products} = require('./products');
  const port = process.env.PORT || 4000;
  const {cart} = require('./cart')
  const {users} = require('./users')
+ const bodyParser = require("body-parser");
    
-app.use(cors());
+
+ app.use(express.urlencoded({ extended: true }));
+app.use(cors({ origin: "http://localhost:3000" }));
+app.use(express.static("public"));
 app.use(express.json());
+app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.send('hello world')
 })
@@ -50,7 +55,7 @@ existingItem.quantity += 1;
 // app.get('/users', (req, res) => {
 //   res.send(users)
 // })
-app.get('/userprod', (req, res) => {
+app.post('/userprod', (req, res) => {
 const userId = parseInt(req.body.id);   
 const user = users.find(u => u.id === userId);
 const userProducts = (user.productItems || []).map(
@@ -62,8 +67,10 @@ const userProducts = (user.productItems || []).map(
   }); 
 })
 
-
+// app.get("/cart", (req, res) => )
     app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-    }); 
+    });
+
+
     
