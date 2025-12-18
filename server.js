@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 }
  res.json(product);
 });
-app.post('/products', (req, res) => {
+app.post('/addtocart', (req, res) => {
   const newProduct = {
     id: req.body.id,
     name: req.body.name,
@@ -55,7 +55,7 @@ existingItem.quantity += 1;
 // app.get('/users', (req, res) => {
 //   res.send(users)
 // })
-app.post('/userprod', (req, res) => {
+app.post('/usercart', (req, res) => {
 const userId = parseInt(req.body.id);   
 const user = users.find(u => u.id === userId);
 const userProducts = (user.productItems || []).map(
